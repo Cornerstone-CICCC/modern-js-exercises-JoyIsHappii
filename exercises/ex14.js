@@ -52,6 +52,4 @@ console.log(calculateChange(501, 1000)); // { twoDollar: 2, quarter: 3, dime: 2,
 
 module.exports = calculateChange;
 
-
-//math.floor(remainingChange/domination.value)
 //done
