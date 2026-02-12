@@ -18,8 +18,26 @@ Warning
 Use some sort of looping. Do Not use String.prototype.replace
 */
 
+
 const urlEncode = function (text) {
   // Put your solution here
+   //approach 1
+/*   text = text.trim ();
+  console.log ('text',text);
+  text = text.split (" ");
+  text = text.join ("%20")
+  return text; */
+   //approach 2
+   let encodedText = "";
+   text = text.trim();
+   for (const char of text) {
+    if (char === " "){
+      encodedText += "%20";
+    } else {
+      encodedText += char;
+    }
+   }
+   return encodedText;
 };
 
 console.log(urlEncode("cornerstone college")); //cornerstone%20college
@@ -27,3 +45,5 @@ console.log(urlEncode(" cornerstone college ")); //cornerstone%20college
 console.log(urlEncode("blue is greener than purple for sure")); //blue%20is%20greener%20than%20purple%20for%20sure
 
 module.exports = urlEncode;
+
+//done

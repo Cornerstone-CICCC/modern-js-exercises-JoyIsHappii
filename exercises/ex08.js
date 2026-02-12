@@ -8,8 +8,15 @@ Instruction
 Create a function named repeatNumbers that will return a string with each of the given values repeated the appropriate number of times, if there are multiple sets of values each set should be separated by a comma. If there is only one set of values then you should omit the comma.
 */
 
-const repeatNumbers = function (data) {
-  // Put your solution here
+const repeatNumbers = function (data) {//use string.repeat(n)
+  let result = [];
+  for (const [value,count] of data) {
+    //console.log(value,count)
+    let tempValue = value.toString().repeat(count);//use 'value.toString' to change value to string and use 'string.repeat count'
+    //console.log(tempValue)
+    result.push(tempValue)
+  }
+  return result.join(", ")
 };
 
 console.log(repeatNumbers([[1, 10]])); // 1111111111
@@ -28,3 +35,5 @@ console.log(
 ); // 10101010, 343434343434, 9292
 
 module.exports = repeatNumbers;
+
+//done

@@ -10,6 +10,16 @@ Create a function named organizeInstructors that will receive an array of instru
 
 const organizeInstructors = function (instructors) {
   // Put your solution here
+  let organize = {};
+  for (let instructor of instructors) {
+    console.log(instructor);
+    
+    if (organize[instructor.course]) {
+
+    } else {
+
+    }
+  }
 };
 
 console.log(

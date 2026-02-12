@@ -8,8 +8,22 @@ Note
 Not sure where to get started? It might be useful to start by creating a variable to keep track of how many dirty samples we find as we loop through the array of samples. We can increment or add to this number using the ++ operator. Once you know how many dirty samples there are, we just need to do some simple math to determine if it exceeds the threshold.
 */
 
+//<40% = polluted
 const checkAir = function (samples, threshold) {
-  // Code here!
+  let dirtyCount = 0;
+  for (const sample of samples) {
+    if (sample === 'dirty') {
+      dirtyCount++
+    }
+  }
+  const ratio = dirtyCount / samples.length ;
+  return ratio >= threshold ? "Polluted" : "Clean";
+ /*  if (ratio >= threshold) {
+    return "polluted"
+  } else {
+    return "clean"
+  } */
+
 };
 
 console.log(
@@ -37,3 +51,5 @@ console.log(
 ); // Clean
 
 module.exports = checkAir;
+
+//done

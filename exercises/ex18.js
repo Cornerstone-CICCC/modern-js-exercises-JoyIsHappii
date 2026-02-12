@@ -23,16 +23,19 @@ Create a function named squareCode that will receive a message, and return the s
 */
 
 const squareCode = function (message) {
-  // Put your solution here
+  // remove spaces
+  const clean = message.split(" ").join("");
+  console.log(clean);
+  return "hey"
 };
 
 console.log(squareCode("chill out")); // clu hlt io
-console.log(squareCode("feed the dog")); // fto ehg ee dd
+/* console.log(squareCode("feed the dog")); // fto ehg ee dd
 console.log(squareCode("have a nice day")); // hae and via ecy
 console.log(
   squareCode(
     "if man was meant to stay on the ground god would have given us roots"
   )
-); // imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
+); // imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoauca
 
-module.exports = squareCode;
+module.exports = squareCode; */

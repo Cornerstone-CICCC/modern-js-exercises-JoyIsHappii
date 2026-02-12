@@ -29,3 +29,5 @@ console.log(makeCaze("this is a string", "consonant")); // THiS iS a STRiNG
 console.log(makeCaze("this is a string", ["upper", "snake"])); // THIS_IS_A_STRING
 
 module.exports = makeCaze;
+
+//use regex for vovel & consonent -> consonent use ^ ; means reject 

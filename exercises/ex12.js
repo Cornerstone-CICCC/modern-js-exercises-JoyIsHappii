@@ -21,7 +21,22 @@ This one is a doozy! We might want to start by creating a helper function called
 */
 
 const chooseRecipe = function (bakeryA, bakeryB, recipes) {
-  // Code here!
+  const hasIngredient = function (bakery, ingredient) {
+    return bakery.includes(ingredient)
+  }
+  for (const recipe of recipes) {
+    const firstIngredient = recipe.ingredients[0];
+    const secondIngredient = recipe.ingredients[1];
+  
+
+    //either ingredient can come from either bakery
+    const firstInASecondInB = hasIngredient(bakeryA, firstIngredient) && hasIngredient (bakeryB, secondIngredient);
+    const firstInBSecondInA = hasIngredient(bakeryB, firstIngredient) && hasIngredient (bakeryA, secondIngredient);
+
+    if (firstInASecondInB || firstInBSecondInA) {
+      return recipe.name
+    }
+  }
 };
 
 let bakeryA = ["saffron", "eggs", "tomato paste", "coconut", "custard"];
@@ -63,3 +78,6 @@ recipes = [
 console.log(chooseRecipe(bakeryA, bakeryB, recipes)); //Nima's Famous Dijon Raisins
 
 module.exports = chooseRecipe;
+
+
+//done
