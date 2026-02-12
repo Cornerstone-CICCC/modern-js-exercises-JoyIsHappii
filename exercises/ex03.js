@@ -34,4 +34,5 @@ console.log(numberOfVowels("cornerstone college")); // 7
 console.log(numberOfVowels("aeiou")); // 5
 
 module.exports = numberOfVowels;
+
 //done
