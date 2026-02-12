@@ -44,4 +44,5 @@ console.log(multiplicationTable(5));
 
 module.exports = multiplicationTable;
 
+
 //done
