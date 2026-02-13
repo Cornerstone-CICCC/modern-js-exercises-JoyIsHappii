@@ -60,3 +60,5 @@ console.log(
 ); // imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
 
 module.exports = squareCode;
+
+//done
