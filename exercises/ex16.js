@@ -16,7 +16,76 @@ For more information on casing styles, read Wikipedia's Special Case Styles for 
 */
 
 const makeCaze = function (input, caze) {
-  // Put your solution here
+  const cazeArray = Array.isArray(caze) ? caze : [caze];
+  
+  const precedence = {
+    'camel': 1,
+    'pascal': 2,
+    'snake': 3,
+    'kebab': 4,
+    'title': 5,
+    'vowel': 6,
+    'consonant': 7,
+    'upper': 8,
+    'lower': 9
+  };
+  
+  const sortedCaze = cazeArray.sort((a, b) => precedence[a] - precedence[b]);
+  
+  let result = input;
+  const vowels = 'aeiouAEIOU';
+  
+  for (const style of sortedCaze) {
+    switch(style) {
+      case 'camel': {
+        const words = result.split(/\s+/);
+        result = words[0].toLowerCase() + words.slice(1).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+        break;
+      }
+      case 'pascal': {
+        const words = result.split(/\s+/);
+        result = words.map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+        break;
+      }
+      case 'snake':
+        result = result.split(/\s+/).join('_').toLowerCase();
+        break;
+      case 'kebab':
+        result = result.split(/\s+/).join('-').toLowerCase();
+        break;
+      case 'title': {
+        const words = result.split(/\s+/);
+        result = words.map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+        break;
+      }
+      case 'vowel':
+        result = result.split('').map(char => {
+          if (vowels.includes(char)) {
+            return char.toUpperCase();
+          }
+          return char.toLowerCase();
+        }).join('');
+        break;
+      case 'consonant':
+        result = result.split('').map(char => {
+          if (vowels.includes(char.toLowerCase())) {
+            return char.toLowerCase();
+          } else if (char.match(/[a-z]/i)) {
+            return char.toUpperCase();
+          }
+          return char;
+        }).join('');
+        break;
+      case 'upper':
+        result = result.toUpperCase();
+        break;
+      case 'lower':
+        result = result.toLowerCase();
+        break;
+    }
+  }
+  
+  return result;
 };
 
 console.log(makeCaze("this is a string", "camel")); // thisIsAString
@@ -30,4 +99,4 @@ console.log(makeCaze("this is a string", ["upper", "snake"])); // THIS_IS_A_STRI
 
 module.exports = makeCaze;
 
-//use regex for vovel & consonent -> consonent use ^ ; means reject 
+//done
