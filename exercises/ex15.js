@@ -12,14 +12,13 @@ const organizeInstructors = function (instructors) {
   // Put your solution here
   let organize = {};
   for (let instructor of instructors) {
-    console.log(instructor);
-    
     if (organize[instructor.course]) {
-
+      organize[instructor.course].push(instructor.name);
     } else {
-
+      organize[instructor.course] = [instructor.name];
     }
   }
+  return organize;
 };
 
 console.log(

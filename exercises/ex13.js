@@ -27,6 +27,19 @@ const talkingCalendar = function (date) {
     "November",
     "December"
   ]
+
+  let suffix;
+  if (day === 1 || day === 21 || day === 31) {
+    suffix = "st";
+  } else if (day === 2 || day === 22) {
+    suffix = "nd";
+  } else if (day === 3 || day === 23) {
+    suffix = "rd";
+  } else {
+    suffix = "th";
+  }
+
+  return `${months[month - 1]} ${day}${suffix}, ${year}`;
 };
 
 console.log(talkingCalendar("2017/12/02")); // December 2nd, 2017
@@ -34,3 +47,5 @@ console.log(talkingCalendar("2007/11/11")); // November 11th, 2007
 console.log(talkingCalendar("1987/08/24")); // August 24th, 1987
 
 module.exports = talkingCalendar;
+
+//done
