@@ -25,17 +25,38 @@ Create a function named squareCode that will receive a message, and return the s
 const squareCode = function (message) {
   // remove spaces
   const clean = message.split(" ").join("");
-  console.log(clean);
-  return "hey"
+  
+  // calculate number of columns
+  const cols = Math.ceil(Math.sqrt(clean.length));
+  
+  // build rows
+  const rows = [];
+  for (let i = 0; i < clean.length; i += cols) {
+    rows.push(clean.slice(i, i + cols));
+  }
+  
+  // read down columns
+  const result = [];
+  for (let col = 0; col < cols; col++) {
+    let column = '';
+    for (let row = 0; row < rows.length; row++) {
+      if (col < rows[row].length) {
+        column += rows[row][col];
+      }
+    }
+    result.push(column);
+  }
+  
+  return result.join(' ');
 };
 
 console.log(squareCode("chill out")); // clu hlt io
-/* console.log(squareCode("feed the dog")); // fto ehg ee dd
+console.log(squareCode("feed the dog")); // fto ehg ee dd
 console.log(squareCode("have a nice day")); // hae and via ecy
 console.log(
   squareCode(
     "if man was meant to stay on the ground god would have given us roots"
   )
-); // imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoauca
+); // imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
 
-module.exports = squareCode; */
+module.exports = squareCode;
